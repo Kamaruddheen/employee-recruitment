@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <!--Jquery import-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--Bootstrap css import-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        form {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            padding-top: 15%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigator" style="color: red;">
+        Navigation Bar is not inserted correctly
+    </div>
+    <script>
+        //to load navigator for all
+        $.get("navig.html", function (data) {
+            $("#navigator").replaceWith(data);
+        });
+    </script>
+    <form>
+        <div class="card text-center" style="width: 18rem;background-color: #1d0d7a98;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col m-1">
+                        <a href="emp_login.jsp"><button type="button" class="btn btn-primary btn-lg">Login as
+                                Employee</button></a>
+                    </div>
+                    <div class="col m-1">
+                        <a href="empr_login.jsp"><button type="button" class="btn btn-warning btn-lg">Login as
+                                Employer</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

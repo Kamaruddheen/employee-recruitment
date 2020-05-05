@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Carrer</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <!--Bootstrap css import-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Jquery import-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <div id="navigator" style="color: red;">
+        Navigation Bar is not inserted correctly
+    </div>
+    <script>
+        //to load navigator for all
+        $.get("navig.html", function (data) {
+            $("#navigator").replaceWith(data);
+
+        });
+    </script>
+    <div class="container">
+        <div class="card mb-3">
+            <img src="images/carrer.png" class="card-img-top" alt="Carrer">
+            <div class="container">
+                <div class="card-img-overlay text-white" style="top: 215px;left: 350px;">
+                    <h5 class="card-text">APPLY TODAY AND</h5>
+                    <h1 class="card-title"><b>Build Your Resume</b></h1>
+                    <a href="signup.html"><button class="btn btn-light shadow" style="font-size: 22.5px;">Apply Now
+                            --></button></a>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">Carrer</h3>
+                        <h5 class="card-text">The Work you do will have a direct effect on business and the
+                            community.<br>At PCS, you will make an impact.</h5>
+                        <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

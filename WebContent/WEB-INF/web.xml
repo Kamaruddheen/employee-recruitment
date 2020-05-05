@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Demo</display-name>
+  <welcome-file-list>
+    <welcome-file>home.html</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>emp_register</servlet-name>
+    <servlet-class>projectniit.emp_register</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>emp_register</servlet-name>
+    <url-pattern>/emp_register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>employee_login</servlet-name>
+    <servlet-class>projectniit.employee_login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employee_login</servlet-name>
+    <url-pattern>/employee_login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>employee_update</servlet-name>
+    <servlet-class>projectniit.employee_update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employee_update</servlet-name>
+    <url-pattern>/employee_update</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>employer_login</servlet-name>
+    <servlet-class>projectniit.employer_login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employer_login</servlet-name>
+    <url-pattern>/employer_login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>employer_update</servlet-name>
+    <servlet-class>projectniit.employer_update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employer_update</servlet-name>
+    <url-pattern>/employer_update</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>employer_jobpost</servlet-name>
+    <servlet-class>projectniit.employer_jobpost</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>employer_jobpost</servlet-name>
+    <url-pattern>/employer_jobpost</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sign Up</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <!--Bootstrap css import-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Jquery import-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        form {
+            width: 100%;
+            padding: 10px;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: #ffffffcc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigator" style="color: red;">
+        Navigation Bar is not inserted correctly
+    </div>
+    <script>
+        //to load navigator for all
+        $.get("navig.html", function (data) {
+            $("#navigator").replaceWith(data);
+        });
+    </script>
+	<!-- Progress Bar -->
+    <div class="form-group sticky" style="position: fixed;width: 100%;top: 0px;">
+        <div class="progress" style="height: 4px;">
+            <div class="progress-bar progress-bar-striped"></div>
+        </div>
+    </div>
+    <!-- Register -->
+    <div class="container">
+        <form action="emp_register" method="post" class="needs-validation" novalidate>
+            <h3><b>
+                    <center>Register</center>
+                </b></h3>
+            <!-- Personal Details -->
+            <div class="container form-group">
+                <div class="page-header"><b>Personal Detail : </b></div>
+            </div>
+            <div class="row">
+	            <!-- Name -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="name">Name<span style="color: red">*</span></label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Name..." required>
+                        <div class="invalid-feedback">Enter a Firstname</div>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="email">Email id<span style="color: red">*</span></label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email Address..."
+                            required>
+                        <div class="invalid-feedback">Enter a Email Address</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+	            <!-- Password -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="password">Password<span style="color: red">*</span></label>
+                        <input type="password" name="password" id="password" pattern=".{8,}" placeholder="Password..."
+                            class="form-control" required>
+                        <div class="invalid-feedback">Enter 8 characters minimum</div>
+                    </div>
+                </div>
+                <!-- Confirm -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="password">Confirm Password<span style="color: red">*</span></label>
+                        <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Password..."
+                            class="form-control" onkeyup='check();' required>
+                        <span id='message'></span>
+                        <div class="invalid-feedback">Enter a Password</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+	            <!-- Dob -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="dob">Date of Birth<span style="color: red">*</span></label>
+                        <input type="date" name="dob" id="dob" placeholder="Date" min="1990-01-01" max="2050-12-31" class="form-control" required>
+                        <div class="invalid-feedback">Select a Birth Date.</div>
+                    </div>
+                </div>
+                <!-- Gender -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="gender">Gender<span style="color: red">*</span></label>
+                        <div class="form-group mx-sm-5 mb-2">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="radio" class="form-check-input" name="gender" id="male" value="male"
+                                        required>Male</div>
+                                <div class="col"><input type="radio" class="form-check-input" name="gender" id="female"
+                                        value="female" required>Female</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            	<!-- City -->
+                <div class="col-6">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="dob">City</label>
+                        <select class="custom-select" id="city" name="city">
+                            <option>Select Your City</option>
+                            <option>Bangalore</option>
+                            <option>Chennai</option>
+                            <option>Coimbatore</option>
+                            <option>Delhi</option>
+                            <option>Kolkata</option>
+                            <option>Mumbai</option>
+                            <option>Pune</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dropdown-divider"></div>
+            <!-- Education -->
+            <div class="container form-group">
+                <div class="page-header"><b>Education : </b></div>
+            </div>
+            <label for="branch" class="mx-sm-5 mb-2"><b>College Details</b></label>
+            <!-- College -->
+            <div class="row">
+            	<!-- College Name -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="college">College Name<span style="color: red">*</span></label>
+                        <input type="text" name="college" id="college" placeholder="Institution" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Please enter you college name</div>
+                    </div>
+                </div>
+                <!-- College Percentage -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="percentage">Percentage<span style="color: red">*</span></label>
+                        <input type="number" name="percentage" id="percentage" placeholder="Percentage"
+                            class="form-control" min="0" max="100" required>
+                        <div class="invalid-feedback">Please select your Degree</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+	            <!-- Degree Qualification -->	
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="highest">Highest Degree Qualification<span style="color: red">*</span></label>
+                        <!-- Options -->
+                        <select class="custom-select form-control" name="highest" required>
+                            <option>Select Your Degree</option>
+                            <option>ME/MTech</option>
+                            <option>BE/BTech</option>
+                            <option>MBA/PGDM</option>
+                            <option>MCA</option>
+                            <option>MSc</option>
+                            <option>BSc</option>
+                            <option>Diploma</option>
+                            <option>Other</option>
+                        </select>
+                        <div class="invalid-feedback">Please select your Degree</div>
+                    </div>
+                </div>
+                <!-- Branch -->
+                <div class="col">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="branch">Branch<span style="color: red">*</span></label>
+                        <select class="custom-select" required name="branch">
+                            <option value="opt18">Select Your Branch</option>
+                            <optgroup label="ME/MTech">
+                                <option>Civil Engineering</option>
+                                <option>Computer Science and Engineering</option>
+                                <option>Chemical Engineering</option>
+                                <option>Electrical Engineering</option>
+                                <option>VLSI</option>
+                                <option>Mechanical Engineering</option>
+                                <option>Electronics and Communication Engineering </option>
+                                <option>other</option>
+                            </optgroup>
+                            <optgroup label="BE/BTech">
+                                <option>Aeronautical/Aerospace Engineering</option>
+                                <option>Agricultural/Irrigation Engineering</option>
+                                <option>Automobile Engineering</option>
+                                <option>Chemical Engineering</option>
+                                <option>Civil Engineering</option>
+                                <option>Computer Science Engineering(CSE)</option>
+                                <option>Electronics and Communication Engineering(ECE)</option>
+                                <option>Electrical and Electronics Engineering(EEE)</option>
+                                <option>Electronics and Instrumentation Engineering(E&I)</option>
+                                <option>Fashion/Design Technology</option>
+                                <option>Information Technology(IT)</option>
+                                <option>Mechanical Engineering</option>
+                                <option>other</option>
+                            </optgroup>
+                            <optgroup label="MBA/PGDM">
+                                <option>Administration</option>
+                                <option>Banking & Finance</option>
+                                <option>Executive</option>
+                                <option>General Management</option>
+                                <option>Human Resources</option>
+                                <option>Information Technology</option>
+                                <option>Marketing</option>
+                                <option>other</option>
+                            </optgroup>
+                            <optgroup label="MCA">
+                                <option>Computer Science</option>
+                                <option>other</option>
+                            </optgroup>
+                            <optgroup label="MSc">
+                                <option>Computer Science</option>
+                                <option>other</option>
+                            </optgroup>
+                     		<optgroup label="Bsc">
+                                <option>Computer Science</option>
+                                <option>other</option>
+                            </optgroup>
+                            <optgroup label="Diploma">
+                                <option>Automobile Engineering</option>
+                                <option>Chemical Engineering</option>
+                                <option>Civil Engineering</option>
+                                <option>Computer Science Engineering</option>
+                                <option>Electronics and Communication Engineering</option>
+                                <option>Electrical and Electronics Engineering</option>
+                                <option>Electronics and Instrumentation Engineering</option>
+                                <option>Fashion/Design Technology</option>
+                                <option>Information Technology(IT)</option>
+                                <option>Mechanical Engineering</option>
+                                <option>other</option>
+                            </optgroup>
+                            <option>Others</option> 
+                        </select>
+                        <div class="invalid-feedback">Please select your Branch</div>
+                    </div>
+                </div>
+           </div>
+            <div class="row">
+           		<!-- PassedOut -->
+                <div class="col-6">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="completion">Year of Completion<span style="color: red">*</span></label>
+                        <input type="number" name="completion" id="completion" placeholder="Year of Completion.."
+                            class="form-control" min="1970" max="2020" required>
+                        <div class="invalid-feedback">Enter a value between 1970 and 2020</div>
+                    </div>
+                </div>
+           </div>
+            
+            <label for="branch" class="mx-sm-5 mb-2"><b>XII and X Details</b></label>
+            <!-- XII & X  -->
+            <div class="row">
+                <!-- XII -->
+                <div class="col-6">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="higher">XII<span style="color: red">*</span></label>
+                        <input type="number" min="0" max="100" name="higher" id="higher" class="form-control"
+                            placeholder="Higher Education Percentage..." required></input>
+                        <div class="invalid-feedback">Enter a 12th percentage</div>
+                    </div>
+                </div>
+                <!-- X -->
+                <div class="col-6">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="secondary">X<span style="color: red">*</span></label>
+                        <input type="number" min="0" max="100" name="secondary" id="secondary" class="form-control"
+                            placeholder="Secondary Education Percentage..." required></input>
+                        <div class="invalid-feedback">Enter a 10th percentage</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dropdown-divider"></div>
+      		<!-- Experience -->
+            <div class="container form-group">
+                <div class="page-header"><b>Experience : </b></div>
+            </div>
+            <div class="row">
+            	<!-- Year of Experience -->
+                <div class="col-6">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <label for="experience">No. of Year Experience<span style="color: red">*</span></label>
+                        <input type="number" min="3" max="20" name="experience" id="experience" class="form-control"
+                            placeholder="Year of Experience..." required></input>
+                        <div class="invalid-feedback">Minimum 3 years of experience</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dropdown-divider"></div>
+            <!-- Skill -->
+            <div class="container form-group">
+                <div class="page-header"><b>Skill : </b></div>
+            </div>
+       		
+            <div class="row">
+                <div class="col form-group mx-sm-5 mb-2">
+                    <label>Skills<span style="color: red">*</span></label><br>
+                    <div class="container form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="skill" value="Active Listening">
+                            <label class="form-check-label" for="skill1">Active Listening</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="skill" value="Communication">
+                            <label class="form-check-label" for="skill2">Communication</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="skill" value="Creativity">
+                            <label class="form-check-label" for="skill3">Creativity</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="skill" value="Decision Making">
+                            <label class="form-check-label" for="skill4">Decision Making</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="skill" value="Critical Thinking">
+                            <label class="form-check-label" for="skill5">Critical Thinking</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="skill" value="Computer skills">
+                            <label class="form-check-label" for="skill6">Computer skills</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="skill" value="Leadership">
+                            <label class="form-check-label" for="skill7">Leadership</label>
+                        </div>
+                    </div>
+                    <!--Dynamically adding elements-->
+                    <div class="row" id="container">
+
+                    </div>
+                    <div class="invalid-feedback">Minimum 3 skills required</div>
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="row p-3">
+                <div class="col text-right">
+                    <div class="mx-sm-5">
+                        <input type="submit" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+   		function __(x) {
+      		return document.getElementById(x);
+    	}
+    
+        //Custom Validation for Form
+        var form = document.querySelector('.needs-validation');
+        form.addEventListener('submit', function (event) {
+            //manual method for validation style
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        })
+        
+        //For checking password
+        var check = function () {
+            if (__('password').value == __('confirmpassword').value) {
+                __('message').style.color = 'green';
+                __('message').innerHTML = '';
+            } else {
+                __('message').style.color = 'red';
+                __
+                __('message').innerHTML = 'Password doesn\'t match';
+            }
+        }
+        
+        // For Progress depend on scrolling
+        $(document).ready(function () {
+            var docHeight = $(document).height(),
+                windowHeight = $(window).height(),
+                scrollPercent;
+
+            $(window).scroll(function () {
+                scrollPercent = $(window).scrollTop() / (docHeight - windowHeight) * 100;
+
+                $('.progress-bar').width(scrollPercent + '%');
+            });
+        });
+
+        // For Progress bar to be fixed
+        $(window).scroll(function () {
+            var sticky = $('.sticky'),
+                scroll = $(window).scrollTop();
+
+            if (scroll >= 100) sticky.addClass('fixed');
+            else sticky.removeClass('fixed');
+        });
+    </script>
+</body>
+
+</html>
